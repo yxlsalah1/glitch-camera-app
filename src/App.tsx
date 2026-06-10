@@ -6,12 +6,10 @@ import { useRecordingStore } from './stores/recordingStore';
 import CameraScreen from './components/CameraScreen';
 
 const App: React.FC = () => {
-  // Initialize stores
   const initializeCamera = useCameraStore((state) => state.setPermissionGranted);
   const initializeEffects = useEffectStore((state) => state.setMasterIntensity);
 
   useEffect(() => {
-    // Initialize app state
     initializeCamera(false);
     initializeEffects(1.0);
   }, [initializeCamera, initializeEffects]);
